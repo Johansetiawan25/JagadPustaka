@@ -7,7 +7,7 @@
 
 <div class="container mt-4">
     <div class="row g-3 ">
-        
+
         <div class="col-md-8">
             <div id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel">
                 <div class="carousel-inner rounded">
