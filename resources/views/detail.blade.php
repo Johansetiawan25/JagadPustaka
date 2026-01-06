@@ -19,7 +19,7 @@
             <p>Deskripsi produk ditulis di sini.</p>
 
             <button class="btn btn-primary w-100">
-                Beli Sekarang juga
+                Beli Sekarang
             </button>
         </div>
 
