@@ -17,7 +17,7 @@ class CartController extends Controller
         ];
 
         $cart = session()->get('cart', []);
-
+//ini percobaan komen
         if (isset($cart[$id])) {
             // kalau produk sudah ada → tambah qty
             $cart[$id]['qty']++;
