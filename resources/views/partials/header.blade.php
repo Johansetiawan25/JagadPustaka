@@ -11,9 +11,20 @@
             </div>
 
             <div class="col-md-3 text-end">
-                <a href="#" class="btn btn-light btn-sm">Daftar</a>
-                 <a href="/login" class="btn btn-light btn-sm">Login</a>
+                @if(Auth::check())
+                    <!-- Jika sudah login -->
+                    
+                    <form method="POST" action="{{ route('logout') }}" style="display:inline">
+                        @csrf
+                        <button type="submit" class="btn btn-light btn-sm">Logout</button>
+                    </form>
+                @else
+                    <!-- Jika belum login -->
+                    <a href="#" class="btn btn-light btn-sm">Daftar</a>
+                    <a href="{{ url('/login') }}" class="btn btn-light btn-sm">Login</a>
+                @endif
             </div>
+
         </div>
     </div>
 </header>

@@ -17,7 +17,7 @@ Route::get('/produk/1', function () {
 
 Route::get('/Beranda', function () {
     return view('home');
-})->middleware([RoleMiddleware::class . ':customer']);
+});
 
 Route::get('/kategori', function () {
     return view('kategori');
@@ -79,3 +79,10 @@ Route::post('/login', function (Request $request) {
         'email' => 'Email atau password salah',
     ]);
 });
+
+Route::post('/logout', function (\Illuminate\Http\Request $request) {
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect('/login');
+})->name('logout');
