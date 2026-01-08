@@ -11,16 +11,9 @@
             </div>
 
             <div class="col-md-3 text-end">
-                <a href="#" class="btn btn-light btn-sm">Masuk</a>
+                <a href="#" class="btn btn-light btn-sm">Daftar</a>
+                 <a href="/login" class="btn btn-light btn-sm">Login</a>
             </div>
-            
-             <!-- Login -->
-            <div class="col-md-3 text-end">
-                <a href="/login" class="btn btn-outline-primary btn-sm">
-                    Login
-                </a>
-            </div>
-
         </div>
     </div>
 </header>
