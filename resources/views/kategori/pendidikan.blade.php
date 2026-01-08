@@ -7,10 +7,11 @@
 <div class="container mt-4">
     <h2>PENDIDIKAN</h2>
     <div class="row">
-        <div class="col-md-3 mb-3">
+        <div class="col-md-3 mb-3 shadow-lg p-4 border-0 rounded-4">
             <div class="card-body">
                 <img src="{{ asset('storage/img/pendidikan1.jpg') }}" class="card-img-top" width="200px">
                 <div class="card-body">
+                    <small class="text-muted">JagadPustaka</small>
                     <h6>Manajemen Pendidikan Berbasis Sekolah</h6>
                     <p class="text-danger fw-bold">Rp120.000</p>
                     <form action="/keranjang/tambah/1" method="POST">
