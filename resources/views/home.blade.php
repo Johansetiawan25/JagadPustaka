@@ -4,8 +4,15 @@
 
 @section('content')
 
-
 <div class="container mt-4">
+    
+    <!--pop up bos-->
+    @if(session('logout_message'))
+    <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+        {{ session('logout_message') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    @endif
     <div class="row g-3 ">
 
         <div class="col-md-8">
