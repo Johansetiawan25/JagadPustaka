@@ -12,10 +12,10 @@
         <!-- Features DONE -->
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <h6 class="text-uppercase fw-bold mb-4">kategori Buku</h6>
-          <p><a href="Indonesia.html" class="text-white text-decoration-none">Pendidikan</a></p>
-          <p><a href="Global.html" class="text-white text-decoration-none">Olahraga</a></p>
-          <p><a href="Punah.html" class="text-white text-decoration-none">Fiksi</a></p>
-          <p><a href="Punah.html" class="text-white text-decoration-none">Desain</a></p>
+          <p><a href="/pendidikan" class="text-white text-decoration-none">Pendidikan</a></p>
+          <p><a href="/olahraga" class="text-white text-decoration-none">Olahraga</a></p>
+          <p><a href="/fiksi" class="text-white text-decoration-none">Fiksi</a></p>
+          <p><a href="/desain" class="text-white text-decoration-none">Desain</a></p>
         </div>
 
         <!-- Useful Links DONE -->
