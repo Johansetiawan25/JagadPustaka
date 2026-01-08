@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BukuController;
 
 Route::get('/', function () {
     return view('home');
@@ -65,3 +66,8 @@ Route::middleware(['guest', 'nocache'])->group(function () {
 Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
+
+Route::get('/pendidikan', [BukuController::class, 'pendidikan']);
+Route::get('/olahraga', [BukuController::class, 'olahraga']);
+Route::get('/fiksi', [BukuController::class, 'fiksi']);
+Route::get('/desain', [BukuController::class, 'desain']);    
