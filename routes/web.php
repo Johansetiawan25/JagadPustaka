@@ -5,6 +5,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 
 Route::get('/', function () {
@@ -56,29 +57,20 @@ Route::get('/keranjang', [CartController::class, 'index']);
 Route::post('/keranjang/tambah/{id}', [CartController::class, 'add']);
 
 // Route POST untuk menangani submit login
-Route::post('/login', function (Request $request) {
-    $email = $request->email;
-    $password = $request->password;
+Route::post('/login', function (\Illuminate\Http\Request $request) {
+    $user = \App\Models\User::where('email', $request->email)->first();
 
-    // Ambil user dari database
-    $user = \App\Models\User::where('email', $email)->first();
-
-    if ($user && $user->password === $password) { // cek password plain text
-        // Login manual
+    if ($user && Hash::check($request->password, $user->password)) {
         Auth::login($user);
+        $request->session()->regenerate();
 
-        // Redirect sesuai role
-        if ($user->role === 'admin') {
-            return redirect('/admin');
-        } else {
-            return redirect('/Beranda');
-        }
+        if ($user->role === 'admin') return redirect('/admin');
+        else return redirect('/Beranda');
     }
 
-    return back()->withErrors([
-        'email' => 'Email atau password salah',
-    ]);
+    return back()->withErrors(['email' => 'Email atau password salah']);
 });
+
 
 Route::post('/logout', function (\Illuminate\Http\Request $request) {
     Auth::logout();
