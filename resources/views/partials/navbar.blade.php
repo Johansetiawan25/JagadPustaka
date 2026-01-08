@@ -19,14 +19,6 @@
                     </li>
                 </ul>
             </div>
-
-            <!-- Login -->
-            <div class="col-md-3 text-end">
-                <a href="/login" class="btn btn-outline-primary btn-sm">
-                    Login
-                </a>
-            </div>
-
         </div>
     </div>
 </nav>
