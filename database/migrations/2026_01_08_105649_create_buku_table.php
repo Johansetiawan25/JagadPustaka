@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('buku', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
+            $table->enum('kategori', ['pendidikan','olahraga','fiksi','desain']);
             $table->string('sampul')->nullable(); // bisa simpan nama file gambar
             $table->string('penulis')->nullable();
             $table->string('penerbit')->nullable();
