@@ -10,7 +10,7 @@
 <body class="bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-600 min-h-screen flex items-center justify-center">
     <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
         <h1 class="text-2xl font-bold text-center text-gray-700 mb-6">
-            Login Admin | JagadPustaka
+            Login JagadPustaka
         </h1>
         <h5 class="text-lg font-bold text-center text-gray-700 mb-6">
             
