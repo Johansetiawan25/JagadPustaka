@@ -13,6 +13,13 @@
             <div class="col-md-3 text-end">
                 <a href="#" class="btn btn-light btn-sm">Masuk</a>
             </div>
+            
+             <!-- Login -->
+            <div class="col-md-3 text-end">
+                <a href="/login" class="btn btn-outline-primary btn-sm">
+                    Login
+                </a>
+            </div>
 
         </div>
     </div>
