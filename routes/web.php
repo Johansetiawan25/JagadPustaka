@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\KategoriController;
 
 Route::get('/', function () {
     return view('home');
@@ -67,6 +68,8 @@ Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
 
+
+Route::get('/kategori', [KategoriController::class, 'index']);
 Route::get('/pendidikan', [BukuController::class, 'pendidikan']);
 Route::get('/olahraga', [BukuController::class, 'olahraga']);
 Route::get('/fiksi', [BukuController::class, 'fiksi']);
