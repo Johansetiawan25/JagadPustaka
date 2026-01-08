@@ -10,7 +10,7 @@
             </div>
 
             <nav class="mt-6 px-6 space-y-2">
-                <a href="{{ url('/') }}" class="block px-4 py-2.5 bg-indigo-50 text-indigo-700 rounded-lg font-medium">
+                <a href="{{ url('/admin') }}" class="block px-4 py-2.5 bg-indigo-50 text-indigo-700 rounded-lg font-medium">
                     Dashboard
                 </a>
                 <a href="{{ url('/transaksi/create') }}" class="block px-4 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg transition">

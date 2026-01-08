@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Middleware\RoleMiddleware;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 
 Route::get('/', function () {
@@ -14,7 +17,7 @@ Route::get('/produk/1', function () {
 
 Route::get('/Beranda', function () {
     return view('home');
-});
+})->middleware([RoleMiddleware::class . ':customer']);
 
 Route::get('/kategori', function () {
     return view('kategori');
@@ -30,7 +33,7 @@ Route::get('/kontak', function () {
 
 Route::get('/admin', function () {
     return view('admin.dashboard');
-});
+})->middleware([RoleMiddleware::class . ':admin']);
 
 Route::get('/pendidikan', function () {
     return view('kategori.pendidikan');
@@ -47,9 +50,32 @@ Route::get('/desain', function () {
 
 Route::get('/login', function () {
     return view('admin.login');
-});
-
+})->name('login');
 
 Route::get('/keranjang', [CartController::class, 'index']);
 Route::post('/keranjang/tambah/{id}', [CartController::class, 'add']);
 
+// Route POST untuk menangani submit login
+Route::post('/login', function (Request $request) {
+    $email = $request->email;
+    $password = $request->password;
+
+    // Ambil user dari database
+    $user = \App\Models\User::where('email', $email)->first();
+
+    if ($user && $user->password === $password) { // cek password plain text
+        // Login manual
+        Auth::login($user);
+
+        // Redirect sesuai role
+        if ($user->role === 'admin') {
+            return redirect('/admin');
+        } else {
+            return redirect('/Beranda');
+        }
+    }
+
+    return back()->withErrors([
+        'email' => 'Email atau password salah',
+    ]);
+});
