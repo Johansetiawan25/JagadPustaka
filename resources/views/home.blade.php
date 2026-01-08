@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="container mt-4">
-    
+
     <!--pop up bos-->
     @if(session('logout_message'))
     <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
@@ -56,6 +56,12 @@
     </div>
 </div>
 
+<div class="container mt-4">
+    <div class="card mb-3">
+        <img src="{{ asset('storage/img/banner.png') }}"
+            class="card-img-top rounded" alt="...">
+    </div>
+</div>
 
 
 
