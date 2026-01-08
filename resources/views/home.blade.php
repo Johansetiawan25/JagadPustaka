@@ -19,13 +19,13 @@
             <div id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel">
                 <div class="carousel-inner rounded">
                     <div class="carousel-item active">
-                        <img src="{{ asset('storage/img/jojohan.png') }}" class="d-block w-100 rounded" alt="...">
+                        <img src="{{ asset('storage/img/promo3.jpeg') }}" class="d-block w-100 rounded" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('storage/img/jojohan.png') }}" class="d-block w-100 rounded" alt="...">
+                        <img src="{{ asset('storage/img/promo4.jpeg') }}" class="d-block w-100 rounded" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('storage/img/jojohan.png') }}" class="d-block w-100 rounded" alt="...">
+                        <img src="{{ asset('storage/img/promo5.jpeg') }}" class="d-block w-100 rounded" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -43,12 +43,12 @@
 
         <div class="col-md-4 d-flex flex-column gap-3">
             <div class="card">
-                <img src="{{ asset('storage/img/jojohan.png') }}"
+                <img src="{{ asset('storage/img/promo1.jpeg') }}"
                     class="card-img-top rounded"
                     alt="Promo 1">
             </div>
             <div class="card">
-                <img src="{{ asset('storage/img/jojohan.png') }}"
+                <img src="{{ asset('storage/img/promo2.jpeg') }}"
                     class="card-img-top rounded"
                     alt="Promo 2">
             </div>
