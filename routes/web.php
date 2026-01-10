@@ -73,4 +73,10 @@ Route::get('/kategori', [KategoriController::class, 'index']);
 Route::get('/pendidikan', [BukuController::class, 'pendidikan']);
 Route::get('/olahraga', [BukuController::class, 'olahraga']);
 Route::get('/fiksi', [BukuController::class, 'fiksi']);
-Route::get('/desain', [BukuController::class, 'desain']);    
+Route::get('/desain', [BukuController::class, 'desain']);
+
+// Kurang qty item
+Route::post('/keranjang/kurang/{id}', [CartController::class, 'kurang']);
+Route::delete('/keranjang/hapus/{id}', [CartController::class, 'hapus']);
+
+Route::post('/checkout', [CheckoutController::class, 'checkout']);
