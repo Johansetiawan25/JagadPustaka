@@ -16,7 +16,7 @@ Route::get('/', function () {
 
 Route::get('/Beranda', function () {
     return view('home');
-})->middleware(['auth', 'nocache', RoleMiddleware::class . ':customer']);
+});
 
 Route::get('/produk/1', function () {
     return view('detail');

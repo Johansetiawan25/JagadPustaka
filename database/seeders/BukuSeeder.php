@@ -15,7 +15,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Belajar Laravel 12',
                 'kategori' => 'pendidikan',
-                'sampul' => 'laravel12.jpg',
+                'sampul' => 'Belajar Laravel 12.jpg',
                 'penulis' => 'Andi Saputra',
                 'penerbit' => 'Pustaka Ilmu',
                 'sinopsis' => 'Panduan lengkap belajar Laravel 12 dari dasar hingga mahir.',
@@ -25,7 +25,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Matematika SMA Kelas 10',
                 'kategori' => 'pendidikan',
-                'sampul' => 'matematika.jpg',
+                'sampul' => 'Matematika SMA Kelas 10.jpg',
                 'penulis' => 'Budi Santoso',
                 'penerbit' => 'Edukasi Media',
                 'sinopsis' => 'Buku matematika lengkap untuk siswa SMA kelas 10.',
@@ -35,7 +35,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Fisika Dasar',
                 'kategori' => 'pendidikan',
-                'sampul' => 'fisika.jpg',
+                'sampul' => 'Fisika Dasar.jpg',
                 'penulis' => 'Citra Dewi',
                 'penerbit' => 'Ilmu Pengetahuan',
                 'sinopsis' => 'Pengantar fisika dasar dengan contoh soal lengkap.',
@@ -45,7 +45,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Sejarah Dunia',
                 'kategori' => 'pendidikan',
-                'sampul' => 'sejarah.jpg',
+                'sampul' => 'Sejarah Dunia.jpg',
                 'penulis' => 'Dedi Prasetyo',
                 'penerbit' => 'Pustaka Dunia',
                 'sinopsis' => 'Buku sejarah dunia dari zaman kuno hingga modern.',
@@ -55,7 +55,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Biologi Modern',
                 'kategori' => 'pendidikan',
-                'sampul' => 'biologi.jpg',
+                'sampul' => 'Biologi Modern.png',
                 'penulis' => 'Elisa Rahma',
                 'penerbit' => 'EduScience',
                 'sinopsis' => 'Pembahasan biologi modern untuk pelajar dan mahasiswa.',
@@ -67,7 +67,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Latihan Fisik Harian',
                 'kategori' => 'olahraga',
-                'sampul' => 'latihan_fisik.jpg',
+                'sampul' => 'Latihan Fisik Harian.jpg',
                 'penulis' => 'Fajar Nugroho',
                 'penerbit' => 'FitMedia',
                 'sinopsis' => 'Panduan latihan fisik harian untuk kebugaran.',
@@ -77,7 +77,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Sepak Bola Dasar',
                 'kategori' => 'olahraga',
-                'sampul' => 'sepakbola.jpg',
+                'sampul' => 'Sepak Bola Dasar.jpg',
                 'penulis' => 'Gilang Ramadhan',
                 'penerbit' => 'Sportiva',
                 'sinopsis' => 'Teknik dasar sepak bola untuk pemula.',
@@ -87,7 +87,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Yoga untuk Pemula',
                 'kategori' => 'olahraga',
-                'sampul' => 'yoga.jpg',
+                'sampul' => 'Yoga untuk Pemula.jpg',
                 'penulis' => 'Hesti Anggraini',
                 'penerbit' => 'ZenMedia',
                 'sinopsis' => 'Panduan yoga untuk pemula agar sehat dan rileks.',
@@ -97,7 +97,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Kebugaran Jasmani',
                 'kategori' => 'olahraga',
-                'sampul' => 'kebugaran.jpg',
+                'sampul' => 'Kebugaran Jasmani.jpg',
                 'penulis' => 'Ivan Pratama',
                 'penerbit' => 'FitBooks',
                 'sinopsis' => 'Buku lengkap tentang kebugaran jasmani dan latihan otot.',
@@ -107,7 +107,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Atletik Dasar',
                 'kategori' => 'olahraga',
-                'sampul' => 'atletik.jpg',
+                'sampul' => 'Atletik Dasar.jpg',
                 'penulis' => 'Joko Santoso',
                 'penerbit' => 'SportScience',
                 'sinopsis' => 'Dasar-dasar atletik dan latihan lari untuk pemula.',
@@ -119,7 +119,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Petualangan di Negeri Ajaib',
                 'kategori' => 'fiksi',
-                'sampul' => 'negeri_ajaib.jpg',
+                'sampul' => 'Petualangan di Negeri Ajaib.jpg',
                 'penulis' => 'Kirana Putri',
                 'penerbit' => 'FiksiMuda',
                 'sinopsis' => 'Cerita fiksi penuh petualangan dan fantasi.',
@@ -129,7 +129,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Detektif Cilik',
                 'kategori' => 'fiksi',
-                'sampul' => 'detektif.jpg',
+                'sampul' => 'Detektif Cilik.jpg',
                 'penulis' => 'Liam Hartanto',
                 'penerbit' => 'StoryBooks',
                 'sinopsis' => 'Petualangan seorang detektif cilik yang cerdas.',
@@ -139,7 +139,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Dongeng Malam',
                 'kategori' => 'fiksi',
-                'sampul' => 'dongeng.jpg',
+                'sampul' => 'Dongeng Malam.jpg',
                 'penulis' => 'Maya Lestari',
                 'penerbit' => 'CeritaIndah',
                 'sinopsis' => 'Kumpulan dongeng malam untuk anak-anak.',
@@ -149,7 +149,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Novel Cinta Remaja',
                 'kategori' => 'fiksi',
-                'sampul' => 'cinta_remaja.jpg',
+                'sampul' => 'Novel Cinta Remaja.jpg',
                 'penulis' => 'Nadia Prameswari',
                 'penerbit' => 'TeenBooks',
                 'sinopsis' => 'Cerita fiksi romantis untuk remaja.',
@@ -159,7 +159,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Misteri Hutan Terlarang',
                 'kategori' => 'fiksi',
-                'sampul' => 'misteri_hutan.jpg',
+                'sampul' => 'Misteri Hutan Terlarang.jpg',
                 'penulis' => 'Omar Fikri',
                 'penerbit' => 'MysteryBooks',
                 'sinopsis' => 'Novel misteri penuh teka-teki di hutan terlarang.',
@@ -171,7 +171,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Desain Grafis untuk Pemula',
                 'kategori' => 'desain',
-                'sampul' => 'grafis.jpg',
+                'sampul' => 'Desain Grafis untuk Pemula.jpg',
                 'penulis' => 'Putri Andini',
                 'penerbit' => 'CreativeBooks',
                 'sinopsis' => 'Belajar desain grafis dari dasar dengan mudah.',
@@ -181,7 +181,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Tips Desain Interior',
                 'kategori' => 'desain',
-                'sampul' => 'interior.jpg',
+                'sampul' => 'Tips Desain Interior.jpg',
                 'penulis' => 'Qori Ahmad',
                 'penerbit' => 'DesignMedia',
                 'sinopsis' => 'Panduan tips desain interior rumah modern.',
@@ -191,7 +191,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Desain UI/UX Modern',
                 'kategori' => 'desain',
-                'sampul' => 'uiux.jpg',
+                'sampul' => 'Desain UI UX Modern.jpg',
                 'penulis' => 'Rina Wulandari',
                 'penerbit' => 'TechBooks',
                 'sinopsis' => 'Buku panduan desain UI/UX modern untuk aplikasi dan web.',
@@ -201,7 +201,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Fotografi Kreatif',
                 'kategori' => 'desain',
-                'sampul' => 'fotografi.jpg',
+                'sampul' => 'Fotografi Kreatif.jpg',
                 'penulis' => 'Satria Nugraha',
                 'penerbit' => 'CreativeMedia',
                 'sinopsis' => 'Tips dan trik fotografi kreatif untuk pemula dan profesional.',
@@ -211,7 +211,7 @@ class BukuSeeder extends Seeder
             [
                 'judul' => 'Desain Logo Profesional',
                 'kategori' => 'desain',
-                'sampul' => 'logo.jpg',
+                'sampul' => 'Desain Logo Profesional.jpg',
                 'penulis' => 'Tania Dewi',
                 'penerbit' => 'BrandBooks',
                 'sinopsis' => 'Panduan lengkap membuat logo profesional dari awal.',
