@@ -8,28 +8,16 @@ use Illuminate\Support\Facades\Auth;
 
 class RoleMiddleware
 {
-    public function handle(Request $request, Closure $next, ...$roles)
+    public function handle($request, \Closure $next, ...$roles)
     {
-        // Jika belum login, redirect ke login
-        if (!Auth::check()) {
+        if (!auth()->check()) {
             return redirect('/login');
         }
 
-        $user = Auth::user();
-
-        // Jika role user sesuai daftar role, lanjut
-        if (in_array($user->role, $roles)) {
-            return $next($request);
+        if (!in_array(auth()->user()->role, $roles)) {
+            abort(403);
         }
 
-        // Jika role user tidak sesuai
-        if ($user->role === 'admin') {
-            return redirect('/admin');
-        } elseif ($user->role === 'customer') {
-            return redirect('/Beranda');
-        }
-
-        // fallback
-        return redirect('/login');
+        return $next($request);
     }
 }
