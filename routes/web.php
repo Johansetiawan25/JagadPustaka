@@ -10,6 +10,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KategoriController;
 
+
 Route::get('/', function () {
     return view('home');
 });
@@ -76,7 +77,7 @@ Route::get('/fiksi', [BukuController::class, 'fiksi']);
 Route::get('/desain', [BukuController::class, 'desain']);
 
 // Kurang qty item
-Route::post('/keranjang/kurang/{id}', [CartController::class, 'kurang']);
-Route::delete('/keranjang/hapus/{id}', [CartController::class, 'hapus']);
-
-Route::post('/checkout', [CheckoutController::class, 'checkout']);
+Route::get('/keranjang/kurang/{id}', [CartController::class, 'kurang']);
+Route::get('/keranjang/tambah/{id}', [CartController::class, 'add']);
+Route::get('/keranjang/hapus/{id}', [CartController::class, 'hapus']);
+Route::post('/checkout-wa', [CartController::class, 'checkout'])->middleware('auth');
