@@ -11,13 +11,14 @@
             </div>
 
             <div class="col-md-4 text-end d-flex align-items-center justify-content-end gap-1">
+                
+                @if(Auth::check())
                 <a href="/keranjang" class="btn btn-dark position-relative">
                     <i class="bi bi-cart">&#x1F9FA</i>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         {{ session('cart') ? count(session('cart')) : 0 }}
                     </span>
                 </a>
-                @if(Auth::check())
                 <!-- DROPDOWN USER -->
                 <div class="dropdown">
                     <button class="btn btn-dark dropdown-toggle d-flex align-items-center"
