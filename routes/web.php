@@ -10,6 +10,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
 
 
 Route::get('/', function () {
@@ -91,4 +92,14 @@ Route::middleware(['auth', 'nocache', RoleMiddleware::class . ':admin'])->group(
     Route::get('/admin/buku/{id}/edit', [AdminController::class, 'edit']);
     Route::put('/admin/buku/{id}', [AdminController::class, 'update']);
     Route::delete('/admin/buku/{id}', [AdminController::class, 'destroy']);
+});
+
+Route::middleware(['auth', 'nocache', RoleMiddleware::class . ':admin'])->prefix('admin')->group(function() {
+    Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders.index');
+});
+
+
+Route::prefix('admin')->group(function() {
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::put('/orders/{order}', [OrderController::class, 'update'])->name('orders.update');
 });

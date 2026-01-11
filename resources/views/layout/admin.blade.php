@@ -27,7 +27,7 @@
         <nav class="mt-6 px-6 space-y-2">
             <a href="{{ url('/admin') }}"
                class="block px-4 py-2.5 bg-indigo-50 text-indigo-700 rounded-lg font-medium">
-                Dashboard
+                Kelola Buku
             </a>
 
             <a href="{{ url('/admin/create') }}"
@@ -35,9 +35,9 @@
                 Tambah Buku
             </a>
 
-            <a href="{{ url('/laporan') }}"
+            <a href="{{ url('/admin/orders') }}"
                class="block px-4 py-2.5 text-gray-600 hover:bg-gray-50 rounded-lg">
-                Laporan
+                Kelola Pesanan
             </a>
         </nav>
     </aside>
