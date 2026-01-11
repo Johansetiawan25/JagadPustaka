@@ -6,11 +6,17 @@
                 JAGADPUSTAKA
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <input type="text" class="form-control" placeholder="Cari disini...">
             </div>
 
-            <div class="col-md-3 text-end">
+            <div class="col-md-4 text-end d-flex align-items-center justify-content-end gap-1">
+                <a href="/keranjang" class="btn btn-dark position-relative">
+                    <i class="bi bi-cart">&#x1F9FA</i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{ session('cart') ? count(session('cart')) : 0 }}
+                    </span>
+                </a>
                 @if(Auth::check())
                 <!-- DROPDOWN USER -->
                 <div class="dropdown">
