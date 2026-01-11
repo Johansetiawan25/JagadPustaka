@@ -85,7 +85,7 @@
                 <p>Total Harga:
                     <span id="total-harga" class="fw-bold">Rp {{ number_format($total,0,',','.') }}</span>
                 </p>
-                <button type="submit" class="btn btn-success w-100" @if($total <= 0) disabled @endif>
+                <button type="submit" class="btn btn-primary w-100" @if($total <= 0) disabled @endif>
                     Checkout
                 </button>
             </div>
