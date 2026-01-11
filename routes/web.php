@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\AdminController;
 
 
 Route::get('/', function () {
@@ -22,7 +23,7 @@ Route::get('/Beranda', function () {
 Route::get('/produk/1', function () {
     return view('detail');
 });
-
+//
 
 Route::get('/kategori', function () {
     return view('kategori');
@@ -36,9 +37,9 @@ Route::get('/kontak', function () {
     return view('kontak');
 });
 
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'nocache', RoleMiddleware::class . ':admin']);
+//Route::get('/admin', function () {
+    //return view('admin.dashboard');
+//})->middleware(['auth', 'nocache', RoleMiddleware::class . ':admin']);
 
 Route::get('/pendidikan', function () {
     return view('kategori.pendidikan');
@@ -81,3 +82,13 @@ Route::get('/keranjang/kurang/{id}', [CartController::class, 'kurang']);
 Route::get('/keranjang/tambah/{id}', [CartController::class, 'add']);
 Route::get('/keranjang/hapus/{id}', [CartController::class, 'hapus']);
 Route::post('/checkout-wa', [CartController::class, 'checkout'])->middleware('auth');
+
+Route::middleware(['auth', 'nocache', RoleMiddleware::class . ':admin'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/admin/buku', [AdminController::class, 'index'])->name('admin.buku.index');
+    Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
+    Route::post('/admin/buku', [AdminController::class, 'store'])->name('admin.buku.store');
+    Route::get('/admin/buku/{id}/edit', [AdminController::class, 'edit']);
+    Route::put('/admin/buku/{id}', [AdminController::class, 'update']);
+    Route::delete('/admin/buku/{id}', [AdminController::class, 'destroy']);
+});
