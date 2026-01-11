@@ -26,7 +26,7 @@
 
         <nav class="mt-6 px-6 space-y-2">
             <a href="{{ url('/admin') }}"
-               class="block px-4 py-2.5 bg-indigo-50 text-indigo-700 rounded-lg font-medium">
+               class="block px-4 py-2.5 text-gray-600 hover:bg-gray-50 rounded-lg">
                 Kelola Buku
             </a>
 
@@ -39,6 +39,11 @@
                class="block px-4 py-2.5 text-gray-600 hover:bg-gray-50 rounded-lg">
                 Kelola Pesanan
             </a>
+
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button class="block px-4 py-2.5 text-gray-600 hover:bg-gray-50 rounded-lg">Logout</button>
+            </form>
         </nav>
     </aside>
 
