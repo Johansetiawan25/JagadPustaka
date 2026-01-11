@@ -54,10 +54,10 @@
 
                                 {{-- Tombol − qty + 🗑 sejajar --}}
                                 <div class="d-flex align-items-center gap-2 mb-2">
+                                    <a href="/keranjang/hapus/{{ $id }}" class="btn btn-sm btn-danger">&#x1F5D1</a>
                                     <a href="/keranjang/kurang/{{ $id }}" class="btn btn-sm btn-outline-secondary">−</a>
                                     <span class="fw-bold">{{ $item['qty'] }}</span>
                                     <a href="/keranjang/tambah/{{ $id }}" class="btn btn-sm btn-outline-secondary">+</a>
-                                    <a href="/keranjang/hapus/{{ $id }}" class="btn btn-sm btn-danger">🗑</a>
                                 </div>
 
                                 <p class="card-text">
