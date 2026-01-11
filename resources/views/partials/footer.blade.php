@@ -7,6 +7,7 @@
           <h6 class="text-uppercase fw-bold mb-4">About Us</h6>
           <p><a href="/Beranda" class="text-white text-decoration-none">Beranda</a></p>
           <p><a href="tentang_kami.html" class="text-white text-decoration-none">Tentang</a></p>
+          <p><a href="contact.html" class="text-white text-decoration-none">Contact</a></p>
         </div>
 
         <!-- Features DONE -->
@@ -18,12 +19,7 @@
           <p><a href="/desain" class="text-white text-decoration-none">Desain</a></p>
         </div>
 
-        <!-- Useful Links DONE -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <h6 class="text-uppercase fw-bold mb-4">contact team</h6>
-          <p><a href="contact.html" class="text-white text-decoration-none">Contact</a></p>
-          <p><a href="form.html" class="text-white text-decoration-none">Form Saran</a></p>
-        </div>
+        
 
         <!-- Logo & Deskripsi DONE -->
         <div class="col-md-5 col-lg-6 col-xl-5 mx-auto mb-4">
