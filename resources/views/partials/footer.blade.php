@@ -1,6 +1,6 @@
 <footer class="bg-info text-black pt-5 pb-4 mt-2">
     <div class="container text-md-left">
-      <div class="row">
+      <div class="row align-items-center">
 
         <!-- About Us DONE -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -22,8 +22,8 @@
         
 
         <!-- Logo & Deskripsi DONE -->
-        <div class="col-md-5 col-lg-6 col-xl-5 mx-auto mb-4">
-          <img src="logo.png" alt="Logo" style="height: 125px;" class="mb-2">
+        <div class="col-md-5 col-lg-6 col-xl-5 mx-auto mb-4 d-flex justify-content-center align-items-center">
+          <img src="{{ asset('storage/img/logo.jpeg') }}" alt="Logo" style="height: 150px; border-radius:30px;" class="mb-2">
         </div>
       </div>
 
