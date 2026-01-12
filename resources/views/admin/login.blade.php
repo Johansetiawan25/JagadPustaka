@@ -16,7 +16,7 @@
             
         </h5>
 
-        <img src="{{ asset('images/Logoamikom.png') }}"
+        <img src="{{ asset('storage/img/logo.jpeg') }}"
             class="mx-auto mt-4 w-24 mb-3"
             alt="Login Image">
 

@@ -64,7 +64,7 @@
 </div>
 
 
-
+<!--
 <div class="container mt-4">
     <h2>Kategori Terlaris</h2>
     <div class="row">
@@ -147,80 +147,67 @@
         </div>
     </div>
 </div>
+-->
+
+
 
 <div class="container mt-4">
     <h2>Buku Terlaris</h2>
     <div class="row">
-        <div class="col-md-3 mb-3">
-            <div class="card">
-                <img src="{{ asset('storage/img/jojohan.png') }}" class="card-img-top" width="200px">
-                <div class="card-body">
-                    <h6>Sepatu Sneakers</h6>
-                    <p class="text-danger fw-bold">Rp120.000</p>
-                    <a href="/produk/1" class="btn btn-primary btn-sm w-100">
-                        Lihat Detail
-                    </a>
-                </div>
-            </div>
-        </div>
 
         <div class="col-md-3 mb-3">
-            <div class="card">
-                <img src="{{ asset('storage/img/jojohan.png') }}" class="card-img-top" width="200px">
+            <div class="card shadow-lg border-0 rounded-4 h-100">
+                <img src="{{ asset('storage/img/Belajar Laravel 12.jpg') }}" class="card-img-top" style="width: 100%; height: auto;">
                 <div class="card-body">
-                    <h6>Sepatu Sneakers</h6>
-                    <p class="text-danger fw-bold">Rp120.000</p>
-                    <a href="/produk/1" class="btn btn-primary btn-sm w-100">
-                        Lihat Detail
-                    </a>
+                    <small class="text-muted">JagadPustaka</small>
+                    <h6>Belajar Laravel 12</h6>
+                    <p class="text-danger fw-bold">Rp{{ number_format(120000) }}</p>
+                    <form action="/keranjang/tambah/{{1}}" method="POST">
+                        @csrf
+                        <button class="btn btn-primary w-100">Tambah ke Keranjang</button>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card">
-                <img src="{{ asset('storage/img/jojohan.png') }}" class="card-img-top" width="200px">
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-lg border-0 rounded-4 h-100">
+                <img src="{{ asset('storage/img/Biologi Modern.png') }}" class="card-img-top" style="width: 100%; height: auto;">
                 <div class="card-body">
-                    <h6>Sepatu Sneakers</h6>
-                    <p class="text-danger fw-bold">Rp120.000</p>
-                    <a href="/produk/1" class="btn btn-primary btn-sm w-100">
-                        Lihat Detail
-                    </a>
+                    <small class="text-muted">JagadPustaka</small>
+                    <h6>Biologi Modern</h6>
+                    <p class="text-danger fw-bold">Rp{{ number_format( 110000) }}</p>
+                    <form action="/keranjang/tambah/{{5}}" method="POST">
+                        @csrf
+                        <button class="btn btn-primary w-100">Tambah ke Keranjang</button>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card">
-                <img src="{{ asset('storage/img/jojohan.png') }}" class="card-img-top" width="200px">
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-lg border-0 rounded-4 h-100">
+                <img src="{{ asset('storage/img/Detektif Cilik.jpg') }}" class="card-img-top" style="width: 100%; height: auto;">
                 <div class="card-body">
-                    <h6>Sepatu Sneakers</h6>
-                    <p class="text-danger fw-bold">Rp120.000</p>
-                    <a href="/produk/1" class="btn btn-primary btn-sm w-100">
-                        Lihat Detail
-                    </a>
+                    <small class="text-muted">JagadPustaka</small>
+                    <h6>Detektif Cilik</h6>
+                    <p class="text-danger fw-bold">Rp{{ number_format(85000) }}</p>
+                    <form action="/keranjang/tambah/{{12}}" method="POST">
+                        @csrf
+                        <button class="btn btn-primary w-100">Tambah ke Keranjang</button>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card">
-                <img src="{{ asset('storage/img/jojohan.png') }}" class="card-img-top" width="200px">
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-lg border-0 rounded-4 h-100">
+                <img src="{{ asset('storage/img/Fotografi Kreatif.jpg') }}" class="card-img-top" style="width: 100%; height: auto;">
                 <div class="card-body">
-                    <h6>Sepatu Sneakers</h6>
-                    <p class="text-danger fw-bold">Rp120.000</p>
-                    <a href="/produk/1" class="btn btn-primary btn-sm w-100">
-                        Lihat Detail
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <img src="{{ asset('storage/img/jojohan.png') }}" class="card-img-top" width="200px">
-                <div class="card-body">
-                    <h6>Sepatu Sneakers</h6>
-                    <p class="text-danger fw-bold">Rp120.000</p>
-                    <a href="/produk/1" class="btn btn-primary btn-sm w-100">
-                        Lihat Detail
-                    </a>
+                    <small class="text-muted">JagadPustaka</small>
+                    <h6>Fotografi Kreatif</h6>
+                    <p class="text-danger fw-bold">Rp{{ number_format( 98000) }}</p>
+                    <form action="/keranjang/tambah/{{19}}" method="POST">
+                        @csrf
+                        <button class="btn btn-primary w-100">Tambah ke Keranjang</button>
+                    </form>
                 </div>
             </div>
         </div>
