@@ -8,14 +8,18 @@ use App\Models\Order;
 
 class OrderController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Ambil semua orders urut berdasarkan status
+        $status = $request->query('status'); // ambil status dari URL
+
         $orders = Order::with('user')
-            ->orderByRaw("FIELD(status, 'pending', 'bayar', 'selesai', 'batal')")
+            ->when($status, function ($query) use ($status) {
+                $query->where('status', $status);
+            })
+            ->orderBy('created_at', 'asc')
             ->get();
 
-        return view('admin.orders', compact('orders'));
+        return view('admin.orders', compact('orders', 'status'));
     }
 
     public function update(Request $request, Order $order)

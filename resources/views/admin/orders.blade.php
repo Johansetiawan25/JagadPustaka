@@ -12,10 +12,39 @@
         </div>
     @endif
 
+    <div class="flex gap-2 mb-4">
+    <a href="{{ route('orders.index') }}"
+       class="px-4 py-2 rounded {{ empty($status) ? 'bg-gray-800 text-white' : 'bg-gray-200' }}">
+        Semua
+    </a>
+
+    <a href="{{ route('orders.index', ['status' => 'pending']) }}"
+       class="px-4 py-2 rounded {{ ($status ?? '') == 'pending' ? 'bg-yellow-500 text-white' : 'bg-gray-200' }}">
+        Pending
+    </a>
+
+    <a href="{{ route('orders.index', ['status' => 'bayar']) }}"
+       class="px-4 py-2 rounded {{ ($status ?? '') == 'bayar' ? 'bg-blue-500 text-white' : 'bg-gray-200' }}">
+        Bayar
+    </a>
+
+    <a href="{{ route('orders.index', ['status' => 'selesai']) }}"
+       class="px-4 py-2 rounded {{ ($status ?? '') == 'selesai' ? 'bg-green-500 text-white' : 'bg-gray-200' }}">
+        Selesai
+    </a>
+
+    <a href="{{ route('orders.index', ['status' => 'batal']) }}"
+       class="px-4 py-2 rounded {{ ($status ?? '') == 'batal' ? 'bg-red-500 text-white' : 'bg-gray-200' }}">
+        Batal
+    </a>
+</div>
+
     <table class="table-auto w-full border border-gray-300">
         <thead>
             <tr class="bg-gray-100">
-                <th class="border px-4 py-2">#</th>
+                <th class="border px-4 py-2">No</th>
+                <th class="border px-4 py-2">Tanggal</th>
+                <th class="border px-4 py-2">Kode Pembelian</th>
                 <th class="border px-4 py-2">User</th>
                 <th class="border px-4 py-2">Total Harga</th>
                 <th class="border px-4 py-2">Status</th>
@@ -25,6 +54,8 @@
         <tbody>
             @foreach($orders as $order)
                 <tr>
+                    <td class="border px-4 py-2 text-center">{{ $loop->iteration }}</td>
+                    <td class="border px-4 py-2 text-sm">{{ $order->created_at->format('d-m-Y H:i') }}</td>
                     <td class="border px-4 py-2">{{ $order->id }}</td>
                     <td class="border px-4 py-2">{{ $order->user->name ?? 'User Tidak Ditemukan' }}</td>
                     <td class="border px-4 py-2">Rp{{ number_format($order->total_harga, 0, ',', '.') }}</td>
@@ -54,10 +85,9 @@
                                 <button name="status" value="selesai" class="px-2 py-1 bg-green-500 text-white rounded">Selesai</button>
                             </form>
                         @else
-                            <span class="text-gray-400">Aksi tidak dapat dibatalkan</span>
+                            <span class="text-gray-400">-</span>
                         @endif
                     </td>
-                </tr>
             @endforeach
         </tbody>
     </table>
