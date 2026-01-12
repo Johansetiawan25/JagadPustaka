@@ -45,7 +45,7 @@
 
             <div class="text-center text-sm text-gray-600 mt-4 mb-4">
                 Belum punya akun?
-                <a href="" class="text-indigo-600 font-medium">
+                <a href="{{ route('register') }}" class="text-indigo-600 font-medium">
                     Daftar
                 </a>
             </div>

@@ -11,6 +11,7 @@ use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Auth\RegisterController;
 
 
 Route::get('/', function () {
@@ -103,3 +104,6 @@ Route::prefix('admin')->group(function() {
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::put('/orders/{order}', [OrderController::class, 'update'])->name('orders.update');
 });
+
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);

@@ -45,7 +45,7 @@
                 </div>
                 @else
                 <!-- JIKA BELUM LOGIN -->
-                <a href="" class="btn btn-light btn-sm me-1">Daftar</a>
+                <a href="{{ route('register') }}" class="btn btn-light btn-sm me-1">Daftar</a>
                 <a href="{{ route('login') }}" class="btn btn-light btn-sm">Login</a>
                 @endif
             </div>
