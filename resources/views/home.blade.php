@@ -41,7 +41,7 @@
         </div>
 
 
-        <div class="col-md-4 d-flex flex-column gap-3">
+        <div class="col-md-4 d-flex flex-column gap-2">
             <div class="card">
                 <img src="{{ asset('storage/img/promo1.jpeg') }}"
                     class="card-img-top rounded"
@@ -152,65 +152,126 @@
 
 
 <div class="container mt-4">
-    <h2>Buku Terlaris</h2>
+    <h2><b>Buku Terlaris</b></h2>
     <div class="row">
 
         <div class="col-md-3 mb-3">
             <div class="card shadow-lg border-0 rounded-4 h-100">
-                <img src="{{ asset('storage/img/Belajar Laravel 12.jpg') }}" class="card-img-top" style="width: 100%; height: auto;">
-                <div class="card-body">
+
+                <div class="p-3">
+                    <img
+                        src="{{ asset('storage/img/Belajar Laravel 12.jpg') }}"
+                        class="img-fluid rounded-3 w-100"
+                        style="height:260px; object-fit:contain;"
+                        alt="Belajar Laravel 12">
+                </div>
+
+                <div class="card-body d-flex flex-column">
                     <small class="text-muted">JagadPustaka</small>
                     <h6>Belajar Laravel 12</h6>
-                    <p class="text-danger fw-bold">Rp{{ number_format(120000) }}</p>
-                    <form action="/keranjang/tambah/{{1}}" method="POST">
+                    <p class="text-danger fw-bold mb-4">
+                        Rp{{ number_format(120000) }}
+                    </p>
+
+                    <form action="/keranjang/tambah/{{1}}" method="POST" class="mt-auto">
                         @csrf
-                        <button class="btn btn-primary w-100">Tambah ke Keranjang</button>
+                        <button class="btn btn-primary w-100">
+                            Tambah ke Keranjang
+                        </button>
                     </form>
                 </div>
+
             </div>
         </div>
+
         <div class="col-md-3 mb-3">
             <div class="card shadow-lg border-0 rounded-4 h-100">
-                <img src="{{ asset('storage/img/Biologi Modern.png') }}" class="card-img-top" style="width: 100%; height: auto;">
-                <div class="card-body">
+
+                <div class="p-3">
+                    <img
+                        src="{{ asset('storage/img/Biologi Modern.png') }}"
+                        class="img-fluid rounded-3 w-100"
+                        style="height:260px; object-fit:contain;"
+                        alt="Biologi Modern">
+                </div>
+
+                <div class="card-body d-flex flex-column">
                     <small class="text-muted">JagadPustaka</small>
                     <h6>Biologi Modern</h6>
-                    <p class="text-danger fw-bold">Rp{{ number_format( 110000) }}</p>
-                    <form action="/keranjang/tambah/{{5}}" method="POST">
+                    <p class="text-danger fw-bold mb-4">
+                        Rp{{ number_format(110000) }}
+                    </p>
+
+                    <form action="/keranjang/tambah/{{5}}" method="POST" class="mt-auto">
                         @csrf
-                        <button class="btn btn-primary w-100">Tambah ke Keranjang</button>
+                        <button class="btn btn-primary w-100">
+                            Tambah ke Keranjang
+                        </button>
                     </form>
                 </div>
+
             </div>
         </div>
+
         <div class="col-md-3 mb-3">
             <div class="card shadow-lg border-0 rounded-4 h-100">
-                <img src="{{ asset('storage/img/Detektif Cilik.jpg') }}" class="card-img-top" style="width: 100%; height: auto;">
-                <div class="card-body">
+
+                <div class="p-3">
+                    <img
+                        src="{{ asset('storage/img/Detektif Cilik.jpg') }}"
+                        class="img-fluid rounded-3 w-100"
+                        style="height:260px; object-fit:contain;"
+                        alt="Detektif Cilik">
+                </div>
+
+                <div class="card-body d-flex flex-column">
                     <small class="text-muted">JagadPustaka</small>
                     <h6>Detektif Cilik</h6>
-                    <p class="text-danger fw-bold">Rp{{ number_format(85000) }}</p>
-                    <form action="/keranjang/tambah/{{12}}" method="POST">
+                    <p class="text-danger fw-bold mb-4">
+                        Rp{{ number_format(85000) }}
+                    </p>
+
+                    <form action="/keranjang/tambah/{{12}}" method="POST" class="mt-auto">
                         @csrf
-                        <button class="btn btn-primary w-100">Tambah ke Keranjang</button>
+                        <button class="btn btn-primary w-100">
+                            Tambah ke Keranjang
+                        </button>
                     </form>
                 </div>
+
             </div>
         </div>
+
         <div class="col-md-3 mb-3">
             <div class="card shadow-lg border-0 rounded-4 h-100">
-                <img src="{{ asset('storage/img/Fotografi Kreatif.jpg') }}" class="card-img-top" style="width: 100%; height: auto;">
-                <div class="card-body">
+
+                <div class="p-3">
+                    <img
+                        src="{{ asset('storage/img/Fotografi Kreatif.jpg') }}"
+                        class="img-fluid rounded-3 w-100"
+                        style="height:260px; object-fit:contain;"
+                        alt="Fotografi Kreatif">
+                </div>
+
+                <div class="card-body d-flex flex-column">
                     <small class="text-muted">JagadPustaka</small>
                     <h6>Fotografi Kreatif</h6>
-                    <p class="text-danger fw-bold">Rp{{ number_format( 98000) }}</p>
-                    <form action="/keranjang/tambah/{{19}}" method="POST">
+                    <p class="text-danger fw-bold mb-4">
+                        Rp{{ number_format(98000) }}
+                    </p>
+
+                    <form action="/keranjang/tambah/{{19}}" method="POST" class="mt-auto">
                         @csrf
-                        <button class="btn btn-primary w-100">Tambah ke Keranjang</button>
+                        <button class="btn btn-primary w-100">
+                            Tambah ke Keranjang
+                        </button>
                     </form>
                 </div>
+
             </div>
         </div>
+
+
     </div>
 </div>
 @endsection

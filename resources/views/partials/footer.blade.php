@@ -32,7 +32,7 @@
       <!-- Bagian Bawah DONE -->
       <div class="d-flex justify-content-between flex-wrap align-items-center">
         <div class="text-center w-100">
-          <p>&copy; 2025 <b>JagadPustaka</b> All Rights Reserved</p>
+          <p>&copy; 2025 <b>JagadPustaka.</b> All Rights Reserved</p>
         </div>
       </div>
     </div>
