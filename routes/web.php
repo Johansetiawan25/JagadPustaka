@@ -105,5 +105,5 @@ Route::prefix('admin')->group(function() {
     Route::put('/orders/{order}', [OrderController::class, 'update'])->name('orders.update');
 });
 
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
