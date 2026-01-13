@@ -16,7 +16,7 @@ class OrderController extends Controller
             ->when($status, function ($query) use ($status) {
                 $query->where('status', $status);
             })
-            ->orderBy('created_at', 'asc')
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('admin.orders', compact('orders', 'status'));
