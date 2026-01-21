@@ -116,3 +116,12 @@ Route::post('/checkout', [CartController::class, 'checkout'])
 
 Route::post('/pembayaran/konfirmasi', [OrderController::class, 'konfirmasi'])
     ->name('pembayaran.konfirmasi');
+
+// Tampilkan form register
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+// Proses registrasi
+Route::post('/register', [AuthController::class, 'register']);
+// Halaman sukses registrasi
+Route::get('/register/success', function () {
+    return view('auth.register-success');
+})->name('register.success');
