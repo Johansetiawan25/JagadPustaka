@@ -113,16 +113,8 @@ class CartController extends Controller
         }
         session()->put('cart', $cart);
 
-        // 6. redirect ke WA
-        $pesan = "Halo, saya ingin memesan:%0A%0A";
-        foreach ($cartSelected as $item) {
-            $pesan .= "- {$item['nama']} x{$item['qty']} = Rp" .
-                number_format($item['harga'] * $item['qty'], 0, ',', '.') . "%0A";
-        }
-        $pesan .= "%0ATotal: Rp" . number_format($total, 0, ',', '.');
+        return redirect()->route('payment.qris', $orderId);
 
-        $noWa = "62895403432222";
-        return redirect("https://wa.me/{$noWa}?text={$pesan}");
     }
 
 

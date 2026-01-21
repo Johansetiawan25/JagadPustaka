@@ -42,4 +42,20 @@ class OrderController extends Controller
 
         return redirect()->back()->with('success', 'Status order tidak bisa diubah.');
     }
+
+    public function payment(Order $order)
+    {
+        $order->load('items.buku'); // ambil item order
+
+        $isPending = $order->status === 'pending';
+        $isBayar   = $order->status === 'bayar';
+        $isSelesai = $order->status === 'selesai';
+        $isBatal   = $order->status === 'batal';
+
+        return view('checkout.qris', compact('order','isPending','isBayar','isSelesai','isBatal'));
+
+    }
+
+
+    
 }

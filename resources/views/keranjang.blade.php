@@ -19,7 +19,7 @@
     @endphp
 
     {{-- FORM CHECKOUT --}}
-    <form action="/checkout-wa" method="POST">
+    <form action="{{ route('cart.checkout') }}" method="POST">
         @csrf
 
         <div class="row">

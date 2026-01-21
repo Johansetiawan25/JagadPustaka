@@ -83,7 +83,9 @@ Route::get('/desain', [BukuController::class, 'desain']);
 Route::get('/keranjang/kurang/{id}', [CartController::class, 'kurang']);
 Route::get('/keranjang/tambah/{id}', [CartController::class, 'add']);
 Route::get('/keranjang/hapus/{id}', [CartController::class, 'hapus']);
-Route::post('/checkout-wa', [CartController::class, 'checkout'])->middleware('auth');
+Route::get('/payment/{order}', [OrderController::class, 'payment'])
+    ->name('payment.qris');
+
 
 Route::middleware(['auth', 'nocache', RoleMiddleware::class . ':admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);
@@ -107,3 +109,10 @@ Route::prefix('admin')->group(function() {
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::post('/checkout', [CartController::class, 'checkout'])
+    ->middleware(['auth', 'nocache'])
+    ->name('cart.checkout');
+
+Route::post('/pembayaran/konfirmasi', [OrderController::class, 'konfirmasi'])
+    ->name('pembayaran.konfirmasi');
