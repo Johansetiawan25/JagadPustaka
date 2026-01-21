@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Buku;
 use Illuminate\Support\Facades\DB;
+use App\Models\Order;
+use App\Models\OrderItem;
+
 
 class CartController extends Controller
 {
@@ -65,57 +68,78 @@ class CartController extends Controller
     public function checkout(Request $request)
     {
         $cart = session()->get('cart', []);
+        $selected = $request->input('selected', []);
 
-        // Ambil array buku yang dicentang
-        $selected = $request->input('selected', []); // default [] jika kosong
-
-        // Filter cart sesuai yang dicentang
-        $cartSelected = array_filter($cart, function($itemId) use ($selected) {
+        // Filter cart sesuai checkbox
+        $cartSelected = array_filter($cart, function ($itemId) use ($selected) {
             return in_array($itemId, $selected);
         }, ARRAY_FILTER_USE_KEY);
 
-        // 1. cek jika kosong
-        if (!$cartSelected || count($cartSelected) === 0) {
-            return redirect('/keranjang')->with('error', 'Tidak ada item yang dipilih untuk checkout');
+        if (empty($cartSelected)) {
+            return redirect('/keranjang')
+                ->with('error', 'Tidak ada item yang dipilih untuk checkout');
         }
 
-        // 2. hitung total harga
+        // Hitung total
         $total = 0;
         foreach ($cartSelected as $item) {
             $total += $item['harga'] * $item['qty'];
         }
 
-        // 3. simpan ke tabel orders
-        $orderId = DB::table('orders')->insertGetId([
-            'user_id' => auth()->id(),
-            'total_harga' => $total,
-            'status' => 'pending',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        try {
+            DB::transaction(function () use ($cartSelected, $total, &$order) {
 
-        // 4. simpan ke tabel order_items
-        foreach ($cartSelected as $buku_id => $item) {
-            DB::table('order_items')->insert([
-                'order_id' => $orderId,
-                'buku_id' => $buku_id,
-                'qty' => $item['qty'],
-                'harga' => $item['harga'],
-                'subtotal' => $item['harga'] * $item['qty'],
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
+                // 1️⃣ CEK STOK
+                foreach ($cartSelected as $buku_id => $item) {
+                    $buku = Buku::lockForUpdate()->find($buku_id);
+
+                    // Jika stok tidak mencukupi
+                    if (!$buku || $buku->stok < $item['qty']) {
+                        // Lemparkan exception dengan pesan yang lebih jelas
+                        throw new \Exception(
+                            "Stok buku '{$buku->judul}' tidak mencukupi. Stok yang tersedia: {$buku->stok}, Anda mencoba membeli: {$item['qty']}"
+                        );
+                    }
+                }
+
+                // 2️⃣ BUAT ORDER
+                $order = Order::create([
+                    'user_id' => auth()->id(),
+                    'total_harga' => $total,
+                    'status' => 'pending',
+                ]);
+
+                // 3️⃣ BUAT ORDER ITEMS + KURANGI STOK
+                foreach ($cartSelected as $buku_id => $item) {
+                    OrderItem::create([
+                        'order_id' => $order->id,
+                        'buku_id' => $buku_id,
+                        'qty' => $item['qty'],
+                        'harga' => $item['harga'],
+                        'subtotal' => $item['harga'] * $item['qty'],
+                    ]);
+
+                    Buku::where('id', $buku_id)
+                        ->decrement('stok', $item['qty']);
+                }
+            });
+
+        } catch (\Exception $e) {
+            // Menangkap error dan mengirimkan pesan ke halaman keranjang
+            return redirect('/keranjang')->with('error', $e->getMessage());
         }
 
-        // 5. hapus item yang dicentang dari cart
+        // 4️⃣ HAPUS CART YANG DICHECKOUT
         foreach ($selected as $id) {
             unset($cart[$id]);
         }
         session()->put('cart', $cart);
 
-        return redirect()->route('payment.qris', $orderId);
-
+        // 5️⃣ KE HALAMAN QR
+        return redirect()->route('payment.qris', $order->id);
     }
+
+
 
 
     public function index()

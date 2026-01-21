@@ -6,9 +6,24 @@
 <div class="container mt-4">
     <h3>Keranjang Belanja</h3>
 
+    {{-- 🔴 PESAN ERROR --}}
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
+    {{-- 🔵 PESAN SUKSES (opsional) --}}
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     @if(empty($cart))
         <p>Keranjang kosong</p>
     @else
+
 
     {{-- Hitung total server-side --}}
     @php
