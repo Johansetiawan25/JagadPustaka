@@ -20,11 +20,12 @@
             class="mx-auto mt-4 w-24 mb-3"
             alt="Login Image">
 
-        @if(session('error'))
-        <div class="bg-red-100 text-red-700 p-3 rounded mb-4 rounded">
-            {{ session('error') }}
-        </div>
+        @if ($errors->any())
+            <div class="bg-red-100 text-red-700 p-3 rounded mb-4">
+                {{ $errors->first() }}
+            </div>
         @endif
+
 
         <form method="POST" action="/login">
             @csrf
