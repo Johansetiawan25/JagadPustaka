@@ -11,4 +11,10 @@ class Buku extends Model
     
     protected $table = 'buku';
     protected $fillable = ['judul', 'sampul', 'penulis', 'penerbit', 'sinopsis', 'harga', 'stok'];
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'buku_id');
+    }
 }
+

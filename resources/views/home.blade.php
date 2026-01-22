@@ -149,9 +149,48 @@
 </div>
 -->
 
-
-
 <div class="container mt-4">
+    <h2>BUKU TERLARIS</h2>
+
+    <div class="row">
+        @foreach($buku as $b)
+            <div class="col-md-3 mb-3">
+                <div class="card shadow-lg border-0 rounded-4 h-100">
+                    <div class="p-3">
+                        <img src="{{ asset('storage/img/' . $b->sampul) }}"
+                             class="img-fluid rounded-3 w-100"
+                             style="height:260px; object-fit:contain">
+                    </div>
+
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted">JagadPustaka</small>
+
+                        <h6>{{ $b->judul }}</h6>
+
+                        <p class="text-danger fw-bold">
+                            Rp{{ number_format($b->harga, 0, ',', '.') }}
+                        </p>
+
+                        {{-- 🔹 INI DATA TERLARIS --}}
+                        <small class="text-success mb-2">
+                            Terjual {{ $b->total_terjual }} buku
+                        </small>
+
+                        <form action="/keranjang/tambah/{{ $b->id }}" method="POST" class="mt-auto">
+                            @csrf
+                            <button class="btn btn-primary w-100">
+                                Tambah ke Keranjang
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+
+
+<!--<div class="container mt-4">
     <h2><b>Buku Terlaris</b></h2>
     <div class="row">
 
@@ -273,5 +312,5 @@
 
 
     </div>
-</div>
+</div>-->
 @endsection

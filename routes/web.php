@@ -14,13 +14,13 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Auth\RegisterController;
 
 
-Route::get('/', function () {
-    return view('home');
-});
+//Route::get('/', function () {
+    //return view('home');
+//});
 
-Route::get('/Beranda', function () {
-    return view('home');
-});
+//Route::get('/Beranda', function () {
+    //return view('home');
+//});
 
 Route::get('/produk/1', function () {
     return view('detail');
@@ -125,3 +125,6 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/register/success', function () {
     return view('auth.register-success');
 })->name('register.success');
+
+Route::get('/', [BukuController::class, 'terlaris']);
+Route::get('/Beranda', [BukuController::class, 'terlaris']);
