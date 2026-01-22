@@ -38,22 +38,23 @@ class BukuController extends Controller
 
     public function terlaris()
     {
-        $buku = DB::table('buku')
-            ->leftJoin('order_items', 'buku.id', '=', 'order_items.buku_id')
+        $buku = DB::table('bukus')
+            ->leftJoin('order_items', 'bukus.id', '=', 'order_items.buku_id')
             ->select(
-                'buku.id',
-                'buku.judul',
-                'buku.sampul',
-                'buku.harga',
+                'bukus.id',
+                'bukus.judul',
+                'bukus.sampul',
+                'bukus.harga',
                 DB::raw('COALESCE(SUM(order_items.qty), 0) as total_terjual')
             )
-            ->groupBy('buku.id', 'buku.judul', 'buku.sampul', 'buku.harga')
+            ->groupBy('bukus.id', 'bukus.judul', 'bukus.sampul', 'bukus.harga')
             ->orderByDesc('total_terjual')
             ->limit(12)
             ->get();
 
         return view('home', compact('buku'));
     }
+
 
 
 }

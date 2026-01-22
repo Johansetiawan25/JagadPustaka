@@ -40,13 +40,13 @@ class AdminController extends Controller
     }
 
     // Hapus buku
-    public function hapusBuku($id)
-    {
-        $buku = Buku::findOrFail($id);
-        $buku->delete();
+    //public function hapusBuku($id)
+    //{
+        //$buku = Buku::findOrFail($id);
+        //$buku->delete();
 
-        return redirect()->back()->with('success', 'Buku berhasil dihapus!');
-    }
+        //return redirect()->back()->with('success', 'Buku berhasil dihapus!');
+    //}
 
     // Halaman edit buku (nanti)
     public function edit($id)

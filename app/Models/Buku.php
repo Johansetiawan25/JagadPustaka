@@ -9,8 +9,8 @@ class Buku extends Model
 {
     use HasFactory;
     
-    protected $table = 'buku';
-    protected $fillable = ['judul', 'sampul', 'penulis', 'penerbit', 'sinopsis', 'harga', 'stok'];
+    protected $table = 'bukus';
+    protected $fillable = ['judul', 'kategori', 'sampul', 'penulis', 'penerbit', 'sinopsis', 'harga', 'stok'];
 
     public function orderItems()
     {
