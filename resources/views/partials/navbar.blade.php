@@ -11,12 +11,6 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="/kategori">Kategori</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="/tentang">Tentang Kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="/kontak">Kontak</a>
-                    </li>
                 </ul>
             </div>
         </div>

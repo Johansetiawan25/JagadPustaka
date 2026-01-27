@@ -10,18 +10,20 @@
                 <input type="text" class="form-control" placeholder="Cari disini...">
             </div>
 
-            <div class="col-md-4 text-end d-flex align-items-center justify-content-end gap-1">
-                
+            <div class="col-md-4 text-end d-flex align-items-center justify-content-end gap-3">
+
                 @if(Auth::check())
-                <a href="/keranjang" class="btn btn-light position-relative">
-                    <i class="bi bi-cart">&#x1F9FA</i>
+                <!-- KERANJANG -->
+                <a href="/keranjang" class="btn btn-light d-flex align-items-center position-relative px-3">
+                    <i class="bi bi-cart3 fs-4"></i>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         {{ session('cart') ? count(session('cart')) : 0 }}
                     </span>
                 </a>
+
                 <!-- DROPDOWN USER -->
                 <div class="dropdown">
-                    <button class="btn btn-light dropdown-toggle d-flex align-items-center"
+                    <button class="btn btn-light dropdown-toggle d-flex align-items-center px-3"
                         type="button"
                         id="dropdownUser"
                         data-bs-toggle="dropdown"
@@ -43,13 +45,17 @@
                         </li>
                     </ul>
                 </div>
+
                 @else
-                <!-- JIKA BELUM LOGIN -->
-                <a href="{{ route('register') }}" class="btn btn-light btn-sm me-1">Daftar</a>
-                <a href="{{ route('login') }}" class="btn btn-light btn-sm">Login</a>
+                <!-- BELUM LOGIN -->
+                <a href="{{ route('register') }}" class="btn btn-light d-flex align-items-center px-3">
+                    Daftar
+                </a>
+                <a href="{{ route('login') }}" class="btn btn-light d-flex align-items-center px-3">
+                    Login
+                </a>
                 @endif
             </div>
-
         </div>
 
     </div>

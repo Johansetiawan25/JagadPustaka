@@ -14,6 +14,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Auth\RegisterController;
 
 
+
 //Route::get('/', function () {
     //return view('home');
 //});
@@ -128,3 +129,9 @@ Route::get('/register/success', function () {
 
 Route::get('/', [BukuController::class, 'terlaris']);
 Route::get('/Beranda', [BukuController::class, 'terlaris']);
+
+
+
+Route::post('/keranjang/hapus-all', [CartController::class, 'hapusSemua'])->name('cart.hapusSemua');
+
+Route::get('/keranjang/tambah/{id}', [CartController::class, 'tambahQty'])->name('cart.tambahQty');

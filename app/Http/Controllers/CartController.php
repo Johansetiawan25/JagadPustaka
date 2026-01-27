@@ -144,4 +144,43 @@ class CartController extends Controller
         $cart = session()->get('cart', []);
         return view('keranjang', compact('cart'));
     }
+
+    public function hapusSemua(Request $request)
+    {
+        // ambil item yang diceklis dari form
+        $selected = $request->input('selected', []);
+
+        if (empty($selected)) {
+            return redirect()->back()->with('error', 'Tidak ada item yang dipilih untuk dihapus!');
+        }
+
+        // ambil cart dari session
+        $cart = session()->get('cart', []);
+
+        // hapus item yang diceklis
+        foreach ($selected as $id) {
+            if (isset($cart[$id])) {
+                unset($cart[$id]);
+            }
+        }
+
+        // update session
+        session()->put('cart', $cart);
+
+        return redirect()->back()->with('success', 'Item berhasil dihapus!');
+    }
+
+    public function tambahQty($id)
+    {
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$id])) {
+            $cart[$id]['qty']++;
+        }
+
+        session()->put('cart', $cart);
+
+        // Tidak ada with('success'), jadi notif tidak muncul
+        return redirect()->back();
+    }
 }
