@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="container mt-4">
-    <h2>OLAHRAGA</h2>
+    <h2>FIKSI</h2>
     <div class="row">
         @foreach($buku as $b)
             <div class="col-md-3 mb-3">

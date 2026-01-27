@@ -7,6 +7,8 @@ use App\Models\Buku;
 use Illuminate\Support\Facades\DB;
 use App\Models\Order;
 use App\Models\OrderItem;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class CartController extends Controller
@@ -37,16 +39,16 @@ class CartController extends Controller
 
         session()->put('cart', $cart);
 
-        return redirect('/keranjang');
+        return redirect()->back()->with('success', 'Berhasil ditambahkan ke keranjang.');
     }
 
     public function kurang($id)
     {
         $cart = session()->get('cart', []);
 
-        if(isset($cart[$id])) {
+        if (isset($cart[$id])) {
             $cart[$id]['qty']--;
-            if($cart[$id]['qty'] <= 0) {
+            if ($cart[$id]['qty'] <= 0) {
                 unset($cart[$id]); // hapus item jika qty <= 0
             }
             session()->put('cart', $cart);
@@ -58,7 +60,7 @@ class CartController extends Controller
     public function hapus($id)
     {
         $cart = session()->get('cart', []);
-        if(isset($cart[$id])) {
+        if (isset($cart[$id])) {
             unset($cart[$id]);
             session()->put('cart', $cart);
         }
@@ -67,6 +69,10 @@ class CartController extends Controller
 
     public function checkout(Request $request)
     {
+        if (!Auth::check()) {
+            return redirect('/login')->with('error', 'Silakan login dulu');
+        }
+
         $cart = session()->get('cart', []);
         $selected = $request->input('selected', []);
 
@@ -86,30 +92,28 @@ class CartController extends Controller
             $total += $item['harga'] * $item['qty'];
         }
 
+
+        $order = null;
+
         try {
             DB::transaction(function () use ($cartSelected, $total, &$order) {
 
-                // 1️⃣ CEK STOK
                 foreach ($cartSelected as $buku_id => $item) {
                     $buku = Buku::lockForUpdate()->find($buku_id);
 
-                    // Jika stok tidak mencukupi
                     if (!$buku || $buku->stok < $item['qty']) {
-                        // Lemparkan exception dengan pesan yang lebih jelas
                         throw new \Exception(
-                            "Stok buku '{$buku->judul}' tidak mencukupi. Stok yang tersedia: {$buku->stok}, Anda mencoba membeli: {$item['qty']}"
+                            "Stok buku '{$buku->judul}' tidak mencukupi."
                         );
                     }
                 }
 
-                // 2️⃣ BUAT ORDER
                 $order = Order::create([
-                    'user_id' => auth()->id(),
+                    'user_id' => Auth::id(),
                     'total_harga' => $total,
                     'status' => 'pending',
                 ]);
 
-                // 3️⃣ BUAT ORDER ITEMS + KURANGI STOK
                 foreach ($cartSelected as $buku_id => $item) {
                     OrderItem::create([
                         'order_id' => $order->id,
@@ -123,23 +127,16 @@ class CartController extends Controller
                         ->decrement('stok', $item['qty']);
                 }
             });
-
         } catch (\Exception $e) {
-            // Menangkap error dan mengirimkan pesan ke halaman keranjang
             return redirect('/keranjang')->with('error', $e->getMessage());
         }
 
-        // 4️⃣ HAPUS CART YANG DICHECKOUT
-        foreach ($selected as $id) {
-            unset($cart[$id]);
+        if (!$order) {
+            return redirect('/keranjang')->with('error', 'Order gagal dibuat');
         }
-        session()->put('cart', $cart);
 
-        // 5️⃣ KE HALAMAN QR
         return redirect()->route('payment.qris', $order->id);
     }
-
-
 
 
     public function index()
