@@ -25,21 +25,26 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+
+            // pesan selamat datang
+            $welcomeMessage = 'Selamat datang di Jagad Pustaka';
+
             // redirect berdasarkan role
             if (Auth::user()->role === 'admin') {
-                return redirect('/admin');
+                return redirect('/admin')->with('login_success', $welcomeMessage);
             } elseif (Auth::user()->role === 'customer') {
-                return redirect('/Beranda');
+                return redirect('/Beranda')->with('login_success', $welcomeMessage);
             }
 
             // fallback jika role lain
-            return redirect('/');
+            return redirect('/')->with('login_success', $welcomeMessage);
         }
 
         return back()->withErrors([
             'email' => 'Email atau password salah',
         ]);
     }
+
 
     // Logout user
     public function logout(Request $request)
@@ -61,16 +66,17 @@ class AuthController extends Controller
     // Proses registrasi
     public function register(Request $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed|min:6',
-        ],
-        [
-            'password.confirmed' => 'Konfirmasi password tidak sama dengan password.',
-            'password.min' => 'Password minimal 6 karakter.',
-        ]
-    );
+        $validated = $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|confirmed|min:6',
+            ],
+            [
+                'password.confirmed' => 'Konfirmasi password tidak sama dengan password.',
+                'password.min' => 'Password minimal 6 karakter.',
+            ]
+        );
 
         // Buat akun baru
         $user = User::create([
@@ -84,7 +90,6 @@ class AuthController extends Controller
         Auth::login($user);
 
         // Redirect ke halaman sukses dengan pesan
-        return redirect('/register/success')->with('status', 'Akun berhasil dibuat!');  
+        return redirect('/register/success')->with('status', 'Akun berhasil dibuat!');
     }
-
 }

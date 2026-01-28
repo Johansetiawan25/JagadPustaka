@@ -7,12 +7,26 @@
 <div class="container mt-4">
 
     <!--pop up bos-->
-    @if(session('logout_message'))
-    <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
-        {{ session('logout_message') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <div class="container mt-3">
+
+        {{-- Pesan login sukses --}}
+        @if(session('login_success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('login_success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        @endif
+
+        {{-- Pesan logout --}}
+        @if(session('logout_message'))
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ session('logout_message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        @endif
+
     </div>
-    @endif
+
     <div class="row g-3 ">
 
         <div class="col-md-8">
@@ -154,37 +168,37 @@
 
     <div class="row">
         @foreach($buku as $b)
-            <div class="col-md-3 mb-3">
-                <div class="card shadow-lg border-0 rounded-4 h-100">
-                    <div class="p-3">
-                        <img src="{{ asset('storage/img/' . $b->sampul) }}"
-                             class="img-fluid rounded-3 w-100"
-                             style="height:260px; object-fit:contain">
-                    </div>
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-lg border-0 rounded-4 h-100">
+                <div class="p-3">
+                    <img src="{{ asset('storage/img/' . $b->sampul) }}"
+                        class="img-fluid rounded-3 w-100"
+                        style="height:260px; object-fit:contain">
+                </div>
 
-                    <div class="card-body d-flex flex-column">
-                        <small class="text-muted">JagadPustaka</small>
+                <div class="card-body d-flex flex-column">
+                    <small class="text-muted">JagadPustaka</small>
 
-                        <h6>{{ $b->judul }}</h6>
+                    <h6>{{ $b->judul }}</h6>
 
-                        <p class="text-danger fw-bold">
-                            Rp{{ number_format($b->harga, 0, ',', '.') }}
-                        </p>
+                    <p class="text-danger fw-bold">
+                        Rp{{ number_format($b->harga, 0, ',', '.') }}
+                    </p>
 
-                        {{-- 🔹 INI DATA TERLARIS --}}
-                        <small class="text-success mb-2">
-                            Terjual {{ $b->total_terjual }} buku
-                        </small>
+                    {{-- 🔹 INI DATA TERLARIS --}}
+                    <small class="text-success mb-2">
+                        Terjual {{ $b->total_terjual }} buku
+                    </small>
 
-                        <form action="/keranjang/tambah/{{ $b->id }}" method="POST" class="mt-auto">
-                            @csrf
-                            <button class="btn btn-primary w-100">
-                                Tambah ke Keranjang
-                            </button>
-                        </form>
-                    </div>
+                    <form action="/keranjang/tambah/{{ $b->id }}" method="POST" class="mt-auto">
+                        @csrf
+                        <button class="btn btn-primary w-100">
+                            Tambah ke Keranjang
+                        </button>
+                    </form>
                 </div>
             </div>
+        </div>
         @endforeach
     </div>
 </div>
